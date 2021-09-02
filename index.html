@@ -26,11 +26,11 @@
     </header>
     <main class="container">
       <section id="album-container">
-        <div class="card" v-for="element in orderedResponse">
-          <img :src="element.poster" alt="New Jersey" />
-          <h2 class="title">{{ element.title }}</h2>
-          <address class="author">{{ element.euthor }}</address>
-          <time :datetime="element.year" class="year">{{ element.year }}</time>
+        <div class="card" v-for="album in orderedResponse" v-if="showAlbumsByGenre(album.genre)">
+          <img :src="album.poster" alt="New Jersey" />
+          <h2 class="title">{{ album.title }}</h2>
+          <address class="author">{{ album.euthor }}</address>
+          <time :datetime="album.year" class="year">{{ album.year }}</time>
         </div>
       </section>
     </main>

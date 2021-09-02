@@ -10,7 +10,6 @@ const app = new Vue({
     selectedGenre: 'All',
   },
   computed: {
-    showAlbumsByGenre();
   },
   methods: {
     orderAlbumsByYear(response) {
@@ -26,8 +25,10 @@ const app = new Vue({
         };
       });
     },
-    showAlbumsByGenre() {
-
+    showAlbumsByGenre(genre) {
+      if (genre == this.selectedGenre || this.selectedGenre == 'All') {
+        return true;
+      };
     },
 
 
