@@ -17,12 +17,12 @@
   <div id="app">
     <header>
       <div class="container">
-        <img src="images/logo.png" />
+        <img @click="orderAlbumsByYear" src="images/logo.png" />
       </div>
     </header>
     <main class="container">
       <section id="album-container">
-        <div class="card" v-for="element in response">
+        <div class="card" v-for="element in orderedResponse">
           <img :src="element.poster" alt="New Jersey" />
           <h2 class="title">{{ element.title }}</h2>
           <address class="author">{{ element.euthor }}</address>
