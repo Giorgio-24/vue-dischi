@@ -5,18 +5,29 @@ Vue.config.devtools = true;
 const app = new Vue({
   el: '#app',
   data: {
-    response: [],
-    getYear: [],
+    albumsGenres: [],
     orderedResponse: [],
+    selectedGenre: 'All',
   },
   computed: {
+    showAlbumsByGenre();
   },
   methods: {
-    orderAlbumsByYear() {
-      this.response.forEach(element => {
+    orderAlbumsByYear(response) {
+      response.forEach(element => {
         this.orderedResponse.push(element)
         this.orderedResponse.sort(function (a, b) { return a.year - b.year });
       });
+    },
+    getAlbumsGenre(response) {
+      response.forEach(element => {
+        if (!this.albumsGenres.includes(element.genre)) {
+          this.albumsGenres.push(element.genre);
+        };
+      });
+    },
+    showAlbumsByGenre() {
+
     },
 
 
@@ -26,8 +37,8 @@ const app = new Vue({
         .then((res) => {
           const response = res.data.response;
           console.log(response);
-          this.response = response;
-          this.orderAlbumsByYear();
+          this.getAlbumsGenre(response);
+          this.orderAlbumsByYear(response);
         });
     }
   },

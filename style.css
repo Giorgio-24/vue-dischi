@@ -35,6 +35,16 @@ header {
   width: 100%;
 }
 
+header > div.container{
+  display: flex;
+  justify-content: space-between;
+}
+
+header > div.container select{
+  height: 20px;
+  align-self: flex-end;
+}
+
 header img {
   height: 50px;
 }

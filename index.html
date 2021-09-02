@@ -18,6 +18,10 @@
     <header>
       <div class="container">
         <img @click="orderAlbumsByYear" src="images/logo.png" />
+        <select v-model="selectedGenre">
+          <option value="All" selected>All</option>
+          <option v-for="element in albumsGenres" :value="element">{{ element }}</option>
+        </select>
       </div>
     </header>
     <main class="container">
@@ -30,16 +34,9 @@
         </div>
       </section>
     </main>
+
+
   </div>
-
-
-  <!--   <select name="" id="">
-    <option>All</option>
-    <option>Pop</option>
-    <option>Pop</option>
-  </select> -->
-
-
   <script src="./script.js"></script>
 </body>
 
