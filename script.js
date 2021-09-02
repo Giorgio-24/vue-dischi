@@ -7,16 +7,17 @@ const app = new Vue({
   data: {
     response: [],
   },
-  computed: {
-    ei: this.axiosTemplate(),
-  },
   methods: {
     axiosTemplate() {
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((res) => {
           const response = res.data.response;
-          this.response.push(response);
+          console.log(response);
+          this.response = response;
         });
     }
+  },
+  created() {
+    this.axiosTemplate();
   },
 });
