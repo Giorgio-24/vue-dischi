@@ -29,7 +29,7 @@
         <div class="card" v-for="album in orderedResponse" v-if="showAlbumsByGenre(album.genre)">
           <img :src="album.poster" alt="New Jersey" />
           <h2 class="title">{{ album.title }}</h2>
-          <address class="author">{{ album.euthor }}</address>
+          <address class="author">{{ album.author }}</address>
           <time :datetime="album.year" class="year">{{ album.year }}</time>
         </div>
       </section>
